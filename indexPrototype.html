@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167033185-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-167033185-1');
+    </script>
+
+    <!-- meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>SURV Thesis</title>
+
+    <!-- bootstrap CSS -->
+    <link href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- google fonts stylesheet -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font-awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--JW player-->
+    <link rel="stylesheet" href="https://cdn.jwplayer.com/libraries/35hrvcJI.js">
+
+
+    <!-- stylesheet -->
+    <link href="css/stylesCaseStudy.css" rel="stylesheet" />
+
+    <!-- internal styles -->
+    <style></style>
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="wrapper bkgd-image-1">
+
+        <!--content-->
+        <div class="wrapper">
+            <div class="container">
+                <div class="row centered">
+                    <div class="col-lg-12 margin-top2">
+                        <iframe style="border: 3px solid rgba(233, 173, 20, 0.1);" width="960" height="540"
+                            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F7LCxSMfqK56rneVtLr7u2Y%2FSURV-prototype-1_113020%3Fnode-id%3D71%253A9%26viewport%3D-1401%252C775%252C0.5610639452934265%26scaling%3Dscale-down%26page-id%3D0%253A1"
+                            allowfullscreen></iframe>
+                    </div>
+                    </div>
+                    <div class="row centered more-padding">
+                        <div class="col-lg-6">
+                            <a class="btn btn-usertest display-7" href="#" role="button"><i class="fa fa-arrow-circle-left"></i>Back to Main Page</a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a class="btn btn-prototype display-7" href="#" role="button">Read Case Study<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- javascript dependencies: first jQuery, then Popper.js, then Bootstrap JS -->
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--JS files for this projext-->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling.js"></script>
+
+    <!--custom JS-->
+    <script>
+        // type effect
+        var TxtRotate = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 500;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtRotate.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 300 - Math.random() * 100;
+
+            if (this.isDeleting) {
+                delta /= 2;
+            }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+        };
+    </script>
+</body>
+
+</html>

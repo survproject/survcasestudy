@@ -1,1 +1,1 @@
-# survcasestudy
+# thesisprojectSURVcasestudy
