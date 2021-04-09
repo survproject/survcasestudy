@@ -162,8 +162,8 @@ a {
 }
 
 .img-fluid {
-    max-width: 135%;
-    margin-left: 7rem;
+    max-width: 100%;
+    margin-left: 0rem;
 
 
 }
@@ -217,7 +217,7 @@ a {
     }
 
     .img-fluid {
-        max-width: 135%;
+        max-width: 100%;
         margin-left: 0rem;
 
     }
