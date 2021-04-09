@@ -151,10 +151,7 @@ a {
     justify-self: end
 }
 
-.img-sketch {
-    max-width: 75%;
 
-}
 
 /* media query for smallest devices */
 
@@ -167,6 +164,11 @@ a {
 .img-fluid {
     max-width: 50%;
     margin-left: 7rem;
+
+}
+
+.img-sketch {
+    max-width: 50%;
 
 }
 
@@ -216,6 +218,11 @@ a {
     .img-fluid {
         max-width: 70%;
         margin-left: 0rem;
+
+    }
+
+    .img-sketch {
+        max-width: 70%;
 
     }
 
@@ -289,6 +296,11 @@ a {
 
     }
 
+    .img-sketch {
+        max-width: 100%;
+
+    }
+
     h2 {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -354,6 +366,11 @@ a {
     .img-fluid {
         max-width: 100%;
         margin-left: 0rem;
+
+    }
+
+    .img-sketch {
+        max-width: 100%;
 
     }
 
