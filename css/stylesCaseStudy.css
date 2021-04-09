@@ -164,6 +164,7 @@ a {
 .img-fluid {
     max-width: 50%;
     margin-left: 7rem;
+    height: fit-content;
 
 }
 
