@@ -185,7 +185,7 @@ a {
 
 .flip-card {
     background-color: transparent;
-    width: 45%;
+    width: 65%;
     height: 250px;
     perspective: 1000px;
     cursor: pointer;
@@ -252,7 +252,7 @@ a {
 
     .flip-card {
         background-color: transparent;
-        width: 45%;
+        width: 65%;
         height: 250px;
         perspective: 1000px;
         cursor: pointer;
